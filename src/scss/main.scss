@@ -1,0 +1,12 @@
+@import './layout/header';
+@import './layout/footer';
+
+.wrapper{
+  position: relative;
+  overflow: hidden;
+}
+
+#main{
+  background: red;
+  color: white;
+}
