@@ -5,7 +5,7 @@ var autoprefixer = require('gulp-autoprefixer');
 var browserSync = require('browser-sync').create();
 var gcmq = require('gulp-group-css-media-queries');
 var cssnano = require('gulp-cssnano');
-var gulpWebpack = require('gulp-webpack');
+var webpackStream = require('webpack-stream');
 var webpack = require('webpack');
 
 var paths = {
@@ -100,13 +100,13 @@ function prodStyles() {
 
 function devScripts() {
   return gulp.src(paths.scripts.src)
-  .pipe(gulpWebpack(devWebpackConfig, webpack))
+  .pipe(webpackStream(devWebpackConfig, webpack))
   .pipe(gulp.dest(paths.scripts.dest))
 }
 
 function prodScripts() {
   return gulp.src(paths.scripts.src)
-  .pipe(gulpWebpack(prodWebpackConfig, webpack))
+  .pipe(webpackStream(prodWebpackConfig, webpack))
   .pipe(gulp.dest(paths.scripts.dest))
 }
 
